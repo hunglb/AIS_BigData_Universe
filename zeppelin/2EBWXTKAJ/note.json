@@ -1,0 +1,1133 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\u003cspan style\u003d\"color:blue;font-weight:bold\"\u003eAction Required\u003c/span\u003e\nClick the guage (\"interpreter binding\") at the top right, drag \"spark\" to the very top of the list, to be the default interpreter for this notebook. Click \"Save\" to save the setting.",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cspan style\u003d\"color:blue;font-weight:bold\"\u003eAction Required\u003c/span\u003e\n\u003cp\u003eClick the guage (\u0026ldquo;interpreter binding\u0026rdquo;) at the top right, drag \u0026ldquo;spark\u0026rdquo; to the very top of the list, to be the default interpreter for this notebook. Click \u0026ldquo;Save\u0026rdquo; to save the setting.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465875_-1378765841",
+      "id": "20171229-192606_1244440967",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Predicting Customer Churn in Telco\n\nIn this notebook you will learn how to build a predictive model with Spark machine learning API (SparkML) and deploy it for scoring in Machine Learning (ML). \n\nThis notebook walks you through these steps:\n- Build a model with SparkML API\n- Save the model in the ML repository\n- Create a Deployment in ML (via UI)\n- Test the model (via UI)\n- Test the model (via REST API)\n\n### Use Case\nThe analytics use case implemented in this notebook is telco churn. While it\u0027s a simple use case, it implements all steps from the CRISP-DM methodolody, which is the recommended best practice for implementing predictive analytics. \n\u003ccenter\u003e![CRISP-DM](https://raw.githubusercontent.com/yfphoon/dsx_demo/master/crisp_dm.png)\u003c/center\u003e\n\nThe analytics process starts with defining the business problem and identifying the data that can be used to solve the problem. For Telco churn, we use demographic and historical transaction data. We also know which customers have churned, which is the critical information for building predictive models. In the next step, we use visual APIs for data understanding and complete some data preparation tasks. In a typical analytics project data preparation will include more steps (for example, formatting data or deriving new variables). \n\nOnce the data is ready, we can build a predictive model. In our example we are using the SparkML Random Forrest classification model. Classification is a statistical technique which assigns a \"class\" to each customer record (for our use case \"churn\" or \"no churn\"). Classification models use historical data to come up with the logic to predict \"class\", this process is called model training. After the model is created, it\u0027s usually evaluated using another data set. \n\nFinally, if the model\u0027s accuracy meets the expectations, it can be deployed for scoring. Scoring is the process of applying the model to a new set of data. For example, when we receive new transactional data, we can score the customer for the risk of churn.  \n\nWe also developed a sample Python Flask application to illustrate deployment: http://predictcustomerchurn.mybluemix.net/. This application implements the REST client call to the model.",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": true,
+          "language": "markdown"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003ePredicting Customer Churn in Telco\u003c/h2\u003e\n\u003cp\u003eIn this notebook you will learn how to build a predictive model with Spark machine learning API (SparkML) and deploy it for scoring in Machine Learning (ML). \u003c/p\u003e\n\u003cp\u003eThis notebook walks you through these steps:\u003cbr/\u003e- Build a model with SparkML API\u003cbr/\u003e- Save the model in the ML repository\u003cbr/\u003e- Create a Deployment in ML (via UI)\u003cbr/\u003e- Test the model (via UI)\u003cbr/\u003e- Test the model (via REST API)\u003c/p\u003e\n\u003ch3\u003eUse Case\u003c/h3\u003e\n\u003cp\u003eThe analytics use case implemented in this notebook is telco churn. While it\u0026rsquo;s a simple use case, it implements all steps from the CRISP-DM methodolody, which is the recommended best practice for implementing predictive analytics.\u003cbr/\u003e\u003ccenter\u003e\u003cimg src\u003d\"https://raw.githubusercontent.com/yfphoon/dsx_demo/master/crisp_dm.png\" alt\u003d\"CRISP-DM\" /\u003e\u003c/center\u003e\u003c/p\u003e\n\u003cp\u003eThe analytics process starts with defining the business problem and identifying the data that can be used to solve the problem. For Telco churn, we use demographic and historical transaction data. We also know which customers have churned, which is the critical information for building predictive models. In the next step, we use visual APIs for data understanding and complete some data preparation tasks. In a typical analytics project data preparation will include more steps (for example, formatting data or deriving new variables). \u003c/p\u003e\n\u003cp\u003eOnce the data is ready, we can build a predictive model. In our example we are using the SparkML Random Forrest classification model. Classification is a statistical technique which assigns a \u0026ldquo;class\u0026rdquo; to each customer record (for our use case \u0026ldquo;churn\u0026rdquo; or \u0026ldquo;no churn\u0026rdquo;). Classification models use historical data to come up with the logic to predict \u0026ldquo;class\u0026rdquo;, this process is called model training. After the model is created, it\u0026rsquo;s usually evaluated using another data set. \u003c/p\u003e\n\u003cp\u003eFinally, if the model\u0026rsquo;s accuracy meets the expectations, it can be deployed for scoring. Scoring is the process of applying the model to a new set of data. For example, when we receive new transactional data, we can score the customer for the risk of churn. \u003c/p\u003e\n\u003cp\u003eWe also developed a sample Python Flask application to illustrate deployment: \u003ca href\u003d\"http://predictcustomerchurn.mybluemix.net/\"\u003ehttp://predictcustomerchurn.mybluemix.net/\u003c/a\u003e. This application implements the REST client call to the model.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465932_-1414547489",
+      "id": "20171214-013817_399742302",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Step 1: Load Data",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "lineNumbers": false,
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": true,
+          "language": "markdown"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eStep 1: Load Data\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465933_-1414932238",
+      "id": "20171216-051104_1077485435",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark.pyspark\r\n\r\nfrom pyspark.sql import SparkSession\r\n# Add asset from file system\r\nspark \u003d SparkSession.builder.getOrCreate()\r\ncustomer \u003d spark.read.csv(\u0027./datasets/customer.csv\u0027, header\u003d\u0027true\u0027, inferSchema \u003d \u0027true\u0027)\r\ncustomer.show(5)\r\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "lineNumbers": true,
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465934_-1413777991",
+      "id": "20171213-233843_297327902",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark.pyspark\r\n\r\nfrom pyspark.sql import SparkSession\r\n# Add asset from file system\r\nspark \u003d SparkSession.builder.getOrCreate()\r\nchurn \u003d spark.read.csv(\u0027./datasets/churn.csv\u0027, header\u003d\u0027true\u0027, inferSchema \u003d \u0027true\u0027)\r\nchurn.show(5)\r\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465935_-1414162740",
+      "id": "20171213-234011_1877573928",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Step 2: Merge Files",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": true,
+          "language": "markdown"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eStep 2: Merge Files\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465935_-1414162740",
+      "id": "20171216-051502_1142500346",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\ndata\u003dcustomer.join(churn,customer[\u0027ID\u0027]\u003d\u003dchurn[\u0027ID\u0027]).select(customer[\u0027*\u0027],churn[\u0027CHURN\u0027])",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465939_-1403389771",
+      "id": "20171213-234124_465356593",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Step 3: Rename some columns",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": true,
+          "language": "markdown"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eStep 3: Rename some columns\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465940_-1405313515",
+      "id": "20171216-051917_957183692",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\ndata \u003d data.withColumnRenamed(\"Est Income\", \"EstIncome\").withColumnRenamed(\"Car Owner\",\"CarOwner\")\ndata.show()",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465940_-1405313515",
+      "id": "20171213-234201_535748231",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n### Step 4: Data Understanding\n\nZeppelin has a built-in query and visualization tool for querying Spark SQL tables. Use the %sql interpreter",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": true,
+          "language": "markdown"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eStep 4: Data Understanding\u003c/h3\u003e\n\u003cp\u003eZeppelin has a built-in query and visualization tool for querying Spark SQL tables. Use the %sql interpreter\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465941_-1405698264",
+      "id": "20171214-012032_443123673",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\ndata.createOrReplaceTempView(\"data\")",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465941_-1405698264",
+      "id": "20171217-224554_1687836948",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect CHURN, LocalBilltype, avg(EstIncome) from data GROUP BY CHURN, LocalBillType ",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/text",
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 302.0,
+              "optionOpen": false,
+              "setting": {
+                "multiBarChart": {
+                  "stacked": true
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "CHURN",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [
+                {
+                  "name": "LocalBilltype",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "avg(EstIncome)",
+                  "index": 2.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465943_-1404928767",
+      "id": "20171217-224927_406860466",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect Paymethod, count(1) value from data Group By Paymethod\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/text",
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465943_-1404928767",
+      "id": "20171228-203915_74519789",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect Age, count(1) value from data where Age\u003c${maxAge\u003d50} group by Age order by Age",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/text",
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "multiBarChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Age",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "value",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "maxAge": "50"
+        },
+        "forms": {
+          "maxAge": {
+            "name": "maxAge",
+            "defaultValue": "50",
+            "hidden": false
+          }
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465944_-1406852511",
+      "id": "20171228-193329_353627505",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect Age, count(1) value from data where Paymethod\u003d\"${Paymethod\u003dAuto,Auto|CC|CH}\" group by Age order by Age",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/text",
+        "runOnSelectionChange": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "Paymethod": "CC"
+        },
+        "forms": {
+          "Paymethod": {
+            "name": "Paymethod",
+            "defaultValue": "Auto",
+            "options": [
+              {
+                "value": "Auto"
+              },
+              {
+                "value": "CC"
+              },
+              {
+                "value": "CH"
+              }
+            ],
+            "hidden": false
+          }
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465944_-1406852511",
+      "id": "20171228-195511_799205977",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Interact with the graph by dragging \"Paymethod\" into the \"group\" box",
+      "text": "%sql\nselect LongDistance, Usage, Paymethod from data\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "scatterChart",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "scatterChart": {
+                  "xAxis": {
+                    "name": "LongDistance",
+                    "index": 0.0,
+                    "aggr": "sum"
+                  },
+                  "yAxis": {
+                    "name": "Usage",
+                    "index": 1.0,
+                    "aggr": "sum"
+                  }
+                }
+              }
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465944_-1406852511",
+      "id": "20171228-204103_1157179934",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Step 5: Build the Spark pipeline and the Random Forest model\n\"Pipeline\" is an API in SparkML that\u0027s used for building models.  Additional information on SparkML: https://spark.apache.org/docs/2.0.2/ml-guide.html",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "scala"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eStep 5: Build the Spark pipeline and the Random Forest model\u003c/h3\u003e\n\u003cp\u003e\u0026ldquo;Pipeline\u0026rdquo; is an API in SparkML that\u0026rsquo;s used for building models. Additional information on SparkML: \u003ca href\u003d\"https://spark.apache.org/docs/2.0.2/ml-guide.html\"\u003ehttps://spark.apache.org/docs/2.0.2/ml-guide.html\u003c/a\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465944_-1406852511",
+      "id": "20171216-052742_1853912173",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\nfrom pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorIndexer, IndexToString\nfrom pyspark.ml import Pipeline\nfrom pyspark.ml.feature import VectorAssembler\nfrom pyspark.ml.classification import RandomForestClassifier\n\n# Prepare string variables so that they can be used by the decision tree algorithm\n# StringIndexer encodes a string column of labels to a column of label indices\nSI1 \u003d StringIndexer(inputCol\u003d\u0027Gender\u0027, outputCol\u003d\u0027GenderEncoded\u0027)\nSI2 \u003d StringIndexer(inputCol\u003d\u0027Status\u0027,outputCol\u003d\u0027StatusEncoded\u0027)\nSI3 \u003d StringIndexer(inputCol\u003d\u0027CarOwner\u0027,outputCol\u003d\u0027CarOwnerEncoded\u0027)\nSI4 \u003d StringIndexer(inputCol\u003d\u0027Paymethod\u0027,outputCol\u003d\u0027PaymethodEncoded\u0027)\nSI5 \u003d StringIndexer(inputCol\u003d\u0027LocalBilltype\u0027,outputCol\u003d\u0027LocalBilltypeEncoded\u0027)\nSI6 \u003d StringIndexer(inputCol\u003d\u0027LongDistanceBilltype\u0027,outputCol\u003d\u0027LongDistanceBilltypeEncoded\u0027)\nlabelIndexer \u003d StringIndexer(inputCol\u003d\u0027CHURN\u0027, outputCol\u003d\u0027label\u0027).fit(data)\n\n\n# Pipelines API requires that input variables are passed in  a vector\nassembler \u003d VectorAssembler(inputCols\u003d[\"GenderEncoded\", \"StatusEncoded\", \"CarOwnerEncoded\", \"PaymethodEncoded\", \"LocalBilltypeEncoded\", \\\n                                       \"LongDistanceBilltypeEncoded\", \"Children\", \"EstIncome\", \"Age\", \"LongDistance\", \"International\", \"Local\",\\\n                                      \"Dropped\",\"Usage\",\"RatePlan\"], outputCol\u003d\"features\")",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465945_-1407237260",
+      "id": "20171214-012318_976903634",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n# instantiate the algorithm, take the default settings\nrf\u003dRandomForestClassifier(labelCol\u003d\"label\", featuresCol\u003d\"features\")\n\n# Convert indexed labels back to original labels.\nlabelConverter \u003d IndexToString(inputCol\u003d\"prediction\", outputCol\u003d\"predictedLabel\", labels\u003dlabelIndexer.labels)\n\npipeline \u003d Pipeline(stages\u003d[SI1,SI2,SI3,SI4,SI5,SI6,labelIndexer,assembler, rf, labelConverter])\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465945_-1407237260",
+      "id": "20171214-013012_1971241348",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n# Split data into train and test datasets\ntrain, test \u003d data.randomSplit([0.8,0.2], seed\u003d6)\ntrain.cache()\ntest.cache()\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465945_-1407237260",
+      "id": "20171214-013037_1711395197",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n# Build models\nmodel \u003d pipeline.fit(train)",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465945_-1407237260",
+      "id": "20171214-013118_114761329",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Step 6: Score the test data set",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eStep 6: Score the test data set\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465946_-1406083013",
+      "id": "20171216-053132_440220050",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\nresults \u003d model.transform(test)\nresults\u003dresults.select(results[\"ID\"],results[\"CHURN\"],results[\"label\"],results[\"predictedLabel\"],results[\"prediction\"],results[\"probability\"])\nresults.show(10,False)\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465947_-1406467762",
+      "id": "20171214-013225_491778721",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Step 7: Model Evaluation\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": true,
+          "language": "markdown"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eStep 7: Model Evaluation\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465947_-1406467762",
+      "id": "20171216-053248_2147008432",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\nprint \u0027Precision model1 \u003d {:.2f}.\u0027.format(results.filter(results.label \u003d\u003d results.prediction).count() / float(results.count()))\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465948_-1408391507",
+      "id": "20171214-013252_1580569700",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\nfrom pyspark.ml.evaluation import BinaryClassificationEvaluator\n\n# Evaluate model\nevaluator \u003d BinaryClassificationEvaluator(rawPredictionCol\u003d\"prediction\", labelCol\u003d\"label\", metricName\u003d\"areaUnderROC\")\nprint \u0027Area under ROC curve \u003d {:.2f}.\u0027.format(evaluator.evaluate(results))\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465950_-1407622009",
+      "id": "20171214-013324_1966008016",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Step 8: Save model in the repository\n**Note: If you wish, change model name**",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": true,
+          "language": "markdown"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eStep 8: Save model in the repository\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eNote: If you wish, change model name\u003c/strong\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465950_-1407622009",
+      "id": "20171229-170420_1250438962",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\nfrom dsx_ml.ml import save\nmodel_name\u003d\"Telco Churn Zeppelin\"\nsave(model\u003dmodel, name\u003dmodel_name, test_data\u003dtest, algorithm_type\u003d\"Classification\")\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465951_-1408006758",
+      "id": "20171229-170601_1089145165",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Step 10: Test Saved Model with Test UI",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": true,
+          "language": "markdown"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eStep 10: Test Saved Model with Test UI\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465951_-1408006758",
+      "id": "20171229-165825_157855583",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n1. Save the notebook and switch to the **Models** tab of the project (**hint**: right click the project name link, DSX_Lo, at the top, and open with another tab in your browser). \n2. Under **Models**, find and click into your saved model. \n4. Click the **Test** link to test the model. You can use the following data for testing: \u003cbr/\u003e\n`ID\u003d99, Gender\u003dM, Status\u003dS, Children\u003d0, Est Income\u003d60000, Car Owner\u003dY, Age\u003d34, LongDistance\u003d68, International\u003d50, Local\u003d100, Dropped\u003d0, Paymethod\u003dCC, LocalBilltype\u003dBudget, LongDistanceBilltype\u003dIntnl_discount, Usage\u003d334, RatePlan\u003d3`\n\nThe results of the test is displayed as follows:\u003cbr/\u003e\n\u003cimg style\u003d\"float: left;\" src\u003d\"https://github.com/yfphoon/dsx_local/blob/master/images/Test_Model.png?raw\u003dtrue\" alt\u003d\"Test API\" width\u003d900 /\u003e",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": true,
+          "language": "markdown"
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003col\u003e\n  \u003cli\u003eSave the notebook and switch to the \u003cstrong\u003eModels\u003c/strong\u003e tab of the project (**hint**: right click the project name link, DSX_Lo, at the top, and open with another tab in your browser).\u003c/li\u003e\n  \u003cli\u003eUnder \u003cstrong\u003eModels\u003c/strong\u003e, find and click into your saved model.\u003c/li\u003e\n  \u003cli\u003eClick the \u003cstrong\u003eTest\u003c/strong\u003e link to test the model. You can use the following data for testing: \u003cbr/\u003e\u003cbr/\u003e\u003ccode\u003eID\u003d99, Gender\u003dM, Status\u003dS, Children\u003d0, Est Income\u003d60000, Car Owner\u003dY, Age\u003d34, LongDistance\u003d68, International\u003d50, Local\u003d100, Dropped\u003d0, Paymethod\u003dCC, LocalBilltype\u003dBudget, LongDistanceBilltype\u003dIntnl_discount, Usage\u003d334, RatePlan\u003d3\u003c/code\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eThe results of the test is displayed as follows:\u003cbr/\u003e\u003cbr/\u003e\u003cimg style\u003d\"float: left;\" src\u003d\"https://github.com/yfphoon/dsx_local/blob/master/images/Test_Model.png?raw\u003dtrue\" alt\u003d\"Test API\" width\u003d900 /\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465951_-1408006758",
+      "id": "20171229-170650_1928076166",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n**Authors**:\n* Sidney Phoon\n* Rich Tarro\n* Elena Lowery\n\nLast Updated: 28th Dec, 2017",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003cstrong\u003eAuthors\u003c/strong\u003e:\u003cbr/\u003e* Sidney Phoon\u003cbr/\u003e* Rich Tarro\u003cbr/\u003e* Elena Lowery\u003c/p\u003e\n\u003cp\u003eLast Updated: 28th Dec, 2017\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465952_-1422242467",
+      "id": "20171228-001207_2056985975",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n",
+      "dateUpdated": "Jun 5, 2019 4:37:45 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559709465952_-1422242467",
+      "id": "20171228-210713_1736472837",
+      "dateCreated": "Jun 5, 2019 4:37:45 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "TelcoChurn_Zeppelin",
+  "id": "2EBWXTKAJ",
+  "angularObjects": {
+    "2CYSFF4KX:shared_process": [],
+    "2CZ7M5Z1U:shared_process": [],
+    "2CZN4E536:shared_process": [],
+    "2CXMXB6B9:shared_process": [],
+    "2CX1UN2AM:shared_process": [],
+    "2CVYP86A3:shared_process": [],
+    "2CZPMT4AR:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

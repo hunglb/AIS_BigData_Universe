@@ -1,0 +1,796 @@
+{
+  "name": "New dashboard",
+  "layout": {
+    "id": "page0",
+    "items": [
+      {
+        "id": "page1",
+        "items": [
+          {
+            "id": "model0000016b257523cf_00000003",
+            "style": {
+              "left": "674px",
+              "top": "85px",
+              "height": "320px",
+              "width": "220px"
+            },
+            "type": "widget"
+          },
+          {
+            "id": "model0000016b2572066a_00000000",
+            "style": {
+              "top": "12px",
+              "left": "12px",
+              "height": "420px",
+              "width": "500px"
+            },
+            "type": "widget"
+          }
+        ],
+        "type": "absolute",
+        "title": {
+          "translationTable": {
+            "Default": "QoS Cell Site"
+          }
+        },
+        "templateName": "NoTemplate"
+      },
+      {
+        "id": "model0000016b25769240_00000000",
+        "items": [
+          {
+            "id": "model0000016b25771e1d_00000003",
+            "style": {
+              "left": "22px",
+              "top": "63px",
+              "height": "320px",
+              "width": "220px"
+            },
+            "type": "widget"
+          },
+          {
+            "id": "model0000016b2577a9bd_00000003",
+            "style": {
+              "left": "353px",
+              "top": "63px",
+              "height": "110px",
+              "width": "200px"
+            },
+            "type": "widget"
+          },
+          {
+            "id": "model0000016b25785710_00000003",
+            "style": {
+              "left": "353px",
+              "top": "248px",
+              "height": "110px",
+              "width": "200px"
+            },
+            "type": "widget"
+          },
+          {
+            "id": "model0000016b2579b2b7_00000002",
+            "style": {
+              "left": "647px",
+              "top": "38px",
+              "height": "420px",
+              "width": "500px"
+            },
+            "type": "widget"
+          }
+        ],
+        "type": "absolute",
+        "title": {
+          "translationTable": {
+            "Default": "Customer Interest"
+          }
+        },
+        "templateName": "NoTemplate"
+      },
+      {
+        "id": "model0000016b257b9095_00000000",
+        "items": [
+          {
+            "id": "model0000016b257c416e_00000000",
+            "style": {
+              "left": "12px",
+              "top": "12px",
+              "height": "666px",
+              "width": "762px"
+            },
+            "type": "widget"
+          }
+        ],
+        "type": "absolute",
+        "title": {
+          "translationTable": {
+            "Default": "Average Call Duration"
+          }
+        },
+        "templateName": "NoTemplate"
+      }
+    ],
+    "style": {
+      "height": "100%"
+    },
+    "type": "tab"
+  },
+  "theme": "defaultTheme",
+  "version": 1009,
+  "eventGroups": [
+    {
+      "id": "page1:1",
+      "widgetIds": [
+        "model0000016b2572066a_00000000",
+        "model0000016b257523cf_00000003"
+      ]
+    },
+    {
+      "id": "model0000016b25769240_00000000:1",
+      "widgetIds": [
+        "model0000016b25771e1d_00000003",
+        "model0000016b2577a9bd_00000003",
+        "model0000016b25785710_00000003",
+        "model0000016b2579b2b7_00000002"
+      ]
+    },
+    {
+      "id": "model0000016b257b9095_00000000:1",
+      "widgetIds": [
+        "model0000016b257c416e_00000000"
+      ]
+    }
+  ],
+  "properties": {
+    "defaultLocale": "Default"
+  },
+  "dataSources": {
+    "version": "1.0",
+    "sources": [
+      {
+        "id": "model0000016b2571157f_00000000",
+        "assetId": "assetId0000016b2571157e_00000000",
+        "clientId": "eyJwcm9qZWN0IjoiQUlTIEJpZyBEYXRhIFVuaXZlcnNlIiwibmFtZSI6IlNpbmdfQ2VsbF9RdWFsaXR5IiwidHlwZSI6IkNTViJ9",
+        "module": {
+          "identifier": "aSing_Cell_Quality",
+          "label": "Sing_Cell_Quality",
+          "source": {
+            "id": "Sing_Cell_Quality",
+            "srcUrl": {
+              "property": [
+                {
+                  "name": "separator",
+                  "value": ","
+                },
+                {
+                  "name": "ColumnNamesLine",
+                  "value": "true"
+                },
+                {
+                  "name": "headers",
+                  "value": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRzMSIsInN1YiI6ImRzMSIsImlzcyI6IktOT1hTU08iLCJhdWQiOiJEU1giLCJyb2xlIjoiVXNlciIsInBlcm1pc3Npb25zIjpbImFjY2Vzc19jYXRhbG9nIl0sInVpZCI6IjEwMDEiLCJhdXRoZW50aWNhdG9yIjoiZGVmYXVsdCIsImRpc3BsYXlfbmFtZSI6IkRhdGEgU2NpZW50aXN0IDEiLCJpYXQiOjE1NTk3MDA2OTQsImV4cCI6MTU1OTc0Mzg5NH0.YYjPrND9TAEVIa6_hfTr9kQiP2pDBBLwOYzhTQ9aQAdRVRiIyY6KC5j0cO7gEFsN0kvYzJtTG_-6FmsZReCFmGWcqJeOIP841NMgd-_f73u2rJhusFyyQBhK_X73NXzG5HzPn5b4OIuamTY8fLQyelkOrurIUL7dus1v1nn9V50rzAuvV3o9IAxtNPtygG31h_CztkWBwKLF9wKGFnsbJCPpjl7A18nsfwVk8VP8D36Esk-VpoqKklGx-C_SXIERB8Liah7Jb1HHvcoC1JseFm782sNsEQbcH7TGUO5GplbQyWd1S6qIdUMnkUrMl8zVQYVNpGhSpJ2CNrLpQGj7pg"
+                    }
+                  ]
+                }
+              ],
+              "sourceUrl": "http://dsx-core-svc:3000/v3/project/AIS%20Big%20Data%20Universe/asset/Sing_Cell_Quality.csv/download"
+            }
+          },
+          "table": {
+            "column": [
+              {
+                "datatype": "NVARCHAR(MAX)",
+                "description": "LOCATION",
+                "label": "LOCATION",
+                "name": "aLOCATION",
+                "nullable": true,
+                "regularAggregate": "countDistinct",
+                "taxonomyFamily": "cNone",
+                "usage": "attribute"
+              },
+              {
+                "datatype": "FLOAT",
+                "description": "EVENT_SUCCESS_Mean",
+                "label": "EVENT_SUCCESS_Mean",
+                "name": "aEVENT_SUCCESS_Mean",
+                "nullable": true,
+                "regularAggregate": "total",
+                "taxonomyFamily": "cNone",
+                "usage": "fact"
+              },
+              {
+                "datatype": "FLOAT",
+                "description": "EVENT_DURATION_Mean",
+                "label": "EVENT_DURATION_Mean",
+                "name": "aEVENT_DURATION_Mean",
+                "nullable": true,
+                "regularAggregate": "total",
+                "taxonomyFamily": "cNone",
+                "usage": "fact"
+              },
+              {
+                "datatype": "BIGINT",
+                "description": "Record_Count",
+                "label": "Record_Count",
+                "name": "aRecord_Count",
+                "nullable": true,
+                "regularAggregate": "total",
+                "taxonomyFamily": "cNone",
+                "usage": "fact"
+              },
+              {
+                "datatype": "NVARCHAR(MAX)",
+                "description": "Region",
+                "label": "Region",
+                "name": "aRegion",
+                "nullable": true,
+                "regularAggregate": "countDistinct",
+                "taxonomyFamily": "cRegion",
+                "usage": "attribute"
+              },
+              {
+                "datatype": "NVARCHAR(MAX)",
+                "description": "District",
+                "label": "District",
+                "name": "aDistrict",
+                "nullable": true,
+                "regularAggregate": "countDistinct",
+                "taxonomyFamily": "cNone",
+                "usage": "attribute"
+              },
+              {
+                "datatype": "FLOAT",
+                "description": "LONGITUDE",
+                "label": "LONGITUDE",
+                "name": "aLONGITUDE",
+                "nullable": true,
+                "regularAggregate": "total",
+                "taxonomyFamily": "cLongitude",
+                "usage": "fact"
+              },
+              {
+                "datatype": "FLOAT",
+                "description": "LATITUDE",
+                "label": "LATITUDE",
+                "name": "aLATITUDE",
+                "nullable": true,
+                "regularAggregate": "total",
+                "taxonomyFamily": "cLatitude",
+                "usage": "fact"
+              }
+            ],
+            "name": "SingCellQuality"
+          },
+          "xsd": "https://ibm.com/daas/module/1.0/module.xsd"
+        },
+        "name": "Sing_Cell_Quality",
+        "shaping": {
+          "embeddedModuleUpToDate": true
+        }
+      },
+      {
+        "id": "model0000016b257141f0_00000002",
+        "assetId": "assetId0000016b257141f0_00000000",
+        "clientId": "eyJwcm9qZWN0IjoiQUlTIEJpZyBEYXRhIFVuaXZlcnNlIiwibmFtZSI6Ik1PQl9DVVNUT01FUl9JTkZPIiwidHlwZSI6IkNTViJ9",
+        "module": {
+          "identifier": "aMOB_CUSTOMER_INFO",
+          "label": "MOB_CUSTOMER_INFO",
+          "source": {
+            "id": "MOB_CUSTOMER_INFO",
+            "srcUrl": {
+              "property": [
+                {
+                  "name": "separator",
+                  "value": ","
+                },
+                {
+                  "name": "ColumnNamesLine",
+                  "value": "true"
+                },
+                {
+                  "name": "headers",
+                  "value": [
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRzMSIsInN1YiI6ImRzMSIsImlzcyI6IktOT1hTU08iLCJhdWQiOiJEU1giLCJyb2xlIjoiVXNlciIsInBlcm1pc3Npb25zIjpbImFjY2Vzc19jYXRhbG9nIl0sInVpZCI6IjEwMDEiLCJhdXRoZW50aWNhdG9yIjoiZGVmYXVsdCIsImRpc3BsYXlfbmFtZSI6IkRhdGEgU2NpZW50aXN0IDEiLCJpYXQiOjE1NTk3MDA2OTQsImV4cCI6MTU1OTc0Mzg5NH0.YYjPrND9TAEVIa6_hfTr9kQiP2pDBBLwOYzhTQ9aQAdRVRiIyY6KC5j0cO7gEFsN0kvYzJtTG_-6FmsZReCFmGWcqJeOIP841NMgd-_f73u2rJhusFyyQBhK_X73NXzG5HzPn5b4OIuamTY8fLQyelkOrurIUL7dus1v1nn9V50rzAuvV3o9IAxtNPtygG31h_CztkWBwKLF9wKGFnsbJCPpjl7A18nsfwVk8VP8D36Esk-VpoqKklGx-C_SXIERB8Liah7Jb1HHvcoC1JseFm782sNsEQbcH7TGUO5GplbQyWd1S6qIdUMnkUrMl8zVQYVNpGhSpJ2CNrLpQGj7pg"
+                    }
+                  ]
+                }
+              ],
+              "sourceUrl": "http://dsx-core-svc:3000/v3/project/AIS%20Big%20Data%20Universe/asset/MOB_CUSTOMER_INFO.csv/download"
+            }
+          },
+          "table": {
+            "column": [
+              {
+                "datatype": "NVARCHAR(MAX)",
+                "description": "Primary Interest",
+                "label": "Primary Interest",
+                "name": "aPrimary_Interest",
+                "nullable": true,
+                "regularAggregate": "countDistinct",
+                "taxonomyFamily": "cNone",
+                "usage": "attribute"
+              },
+              {
+                "datatype": "NVARCHAR(MAX)",
+                "description": "Secondary Interest",
+                "label": "Secondary Interest",
+                "name": "aSecondary_Interest",
+                "nullable": true,
+                "regularAggregate": "countDistinct",
+                "taxonomyFamily": "cSecond",
+                "usage": "attribute"
+              },
+              {
+                "datatype": "NVARCHAR(MAX)",
+                "description": "Tertiary Interest",
+                "label": "Tertiary Interest",
+                "name": "aTertiary_Interest",
+                "nullable": true,
+                "regularAggregate": "countDistinct",
+                "taxonomyFamily": "cNone",
+                "usage": "attribute"
+              },
+              {
+                "datatype": "FLOAT",
+                "description": "Customer Number",
+                "label": "Customer Number",
+                "name": "aCustomer_Number",
+                "nullable": true,
+                "regularAggregate": "total",
+                "taxonomyFamily": "cNone",
+                "usage": "fact"
+              },
+              {
+                "datatype": "NVARCHAR(MAX)",
+                "description": "Customer Name",
+                "label": "Customer Name",
+                "name": "aCustomer_Name",
+                "nullable": true,
+                "regularAggregate": "countDistinct",
+                "taxonomyFamily": "cNone",
+                "usage": "attribute"
+              },
+              {
+                "datatype": "NVARCHAR(MAX)",
+                "description": "Customer Type",
+                "label": "Customer Type",
+                "name": "aCustomer_Type",
+                "nullable": true,
+                "regularAggregate": "countDistinct",
+                "taxonomyFamily": "cNone",
+                "usage": "attribute"
+              },
+              {
+                "datatype": "FLOAT",
+                "description": "Credit Rating",
+                "label": "Credit Rating",
+                "name": "aCredit_Rating",
+                "nullable": true,
+                "regularAggregate": "total",
+                "taxonomyFamily": "cNone",
+                "usage": "fact"
+              },
+              {
+                "datatype": "FLOAT",
+                "description": "Annual Income",
+                "label": "Annual Income",
+                "name": "aAnnual_Income",
+                "nullable": true,
+                "regularAggregate": "total",
+                "taxonomyFamily": "cNone",
+                "usage": "fact"
+              },
+              {
+                "datatype": "NVARCHAR(MAX)",
+                "description": "Account Status",
+                "label": "Account Status",
+                "name": "aAccount_Status",
+                "nullable": true,
+                "regularAggregate": "countDistinct",
+                "taxonomyFamily": "cNone",
+                "usage": "attribute"
+              },
+              {
+                "datatype": "NVARCHAR(MAX)",
+                "description": "MID",
+                "label": "MID",
+                "name": "aMID",
+                "nullable": true,
+                "regularAggregate": "countDistinct",
+                "taxonomyFamily": "cNone",
+                "usage": "attribute"
+              }
+            ],
+            "name": "MOBCUSTOMERINFO"
+          },
+          "xsd": "https://ibm.com/daas/module/1.0/module.xsd"
+        },
+        "name": "MOB_CUSTOMER_INFO",
+        "shaping": {
+          "embeddedModuleUpToDate": true
+        }
+      }
+    ]
+  },
+  "pageContext": [
+    {
+      "origin": "visualization",
+      "table": "",
+      "alias": "0",
+      "sourceId": "model0000016b257141f0_00000002",
+      "hierarchies": [
+        {
+          "hierarchyUniqueName": "MOBCUSTOMERINFO.aPrimary_Interest"
+        }
+      ],
+      "scope": "model0000016b25769240_00000000",
+      "hierarchyUniqueNames": [
+        "MOBCUSTOMERINFO.aPrimary_Interest"
+      ],
+      "eventSourceId": "model0000016b25771e1d_00000003",
+      "eventGroupId": "model0000016b25769240_00000000:1",
+      "tupleSet": "{\"MOBCUSTOMERINFO.aPrimary_Interest->[Soccer]\":{\"u\":\"MOBCUSTOMERINFO.aPrimary_Interest->[Soccer]\",\"d\":\"Soccer\"}}"
+    }
+  ],
+  "drillThrough": [],
+  "widgets": {
+    "model0000016b2572066a_00000000": {
+      "id": "model0000016b2572066a_00000000",
+      "data": {
+        "dataViews": [
+          {
+            "modelRef": "model0000016b2571157f_00000000",
+            "dataItems": [
+              {
+                "id": "model0000016b257296b8_00000000",
+                "itemId": "SingCellQuality.aLOCATION",
+                "itemLabel": "LOCATION"
+              },
+              {
+                "id": "model0000016b2572b74a_00000000",
+                "itemId": "SingCellQuality.aLONGITUDE",
+                "itemLabel": "LONGITUDE"
+              },
+              {
+                "id": "model0000016b2572c056_00000000",
+                "itemId": "SingCellQuality.aLATITUDE",
+                "itemLabel": "LATITUDE"
+              },
+              {
+                "id": "model0000016b2572e5e9_00000001",
+                "itemId": "SingCellQuality.aEVENT_SUCCESS_Mean",
+                "itemLabel": "EVENT_SUCCESS_Mean"
+              }
+            ],
+            "id": "model0000016b257296b7_00000000"
+          }
+        ]
+      },
+      "visTypeLocked": true,
+      "slotmapping": {
+        "slots": [
+          {
+            "name": "categories",
+            "dataItems": [
+              "model0000016b257296b8_00000000"
+            ],
+            "dataItemSettings": [],
+            "caption": "Points",
+            "id": "categories",
+            "layerId": "data"
+          },
+          {
+            "name": "x",
+            "dataItems": [
+              "model0000016b2572b74a_00000000"
+            ],
+            "caption": "x-axis",
+            "id": "x",
+            "layerId": "data"
+          },
+          {
+            "name": "y",
+            "dataItems": [
+              "model0000016b2572c056_00000000"
+            ],
+            "caption": "y-axis",
+            "id": "y",
+            "layerId": "data"
+          },
+          {
+            "name": "color",
+            "dataItems": [
+              "model0000016b2572e5e9_00000001"
+            ],
+            "caption": "Color",
+            "id": "color",
+            "layerId": "data"
+          }
+        ]
+      },
+      "type": "live",
+      "visId": "com.ibm.vis.ravescatter",
+      "name": {
+        "translationTable": {}
+      }
+    },
+    "model0000016b257523cf_00000003": {
+      "id": "model0000016b257523cf_00000003",
+      "data": {
+        "dataViews": [
+          {
+            "modelRef": "model0000016b2571157f_00000000",
+            "dataItems": [
+              {
+                "id": "model0000016b257523cf_00000000",
+                "itemId": "SingCellQuality.aDistrict",
+                "itemLabel": "District"
+              }
+            ],
+            "id": "model0000016b257523cf_00000001"
+          }
+        ]
+      },
+      "slotmapping": {
+        "slots": [
+          {
+            "name": "level1",
+            "dataItems": [
+              "model0000016b257523cf_00000000"
+            ],
+            "caption": "Level one",
+            "id": "level1",
+            "layerId": "data"
+          }
+        ]
+      },
+      "type": "live",
+      "name": {
+        "translationTable": {}
+      },
+      "visId": "list"
+    },
+    "model0000016b25771e1d_00000003": {
+      "id": "model0000016b25771e1d_00000003",
+      "data": {
+        "dataViews": [
+          {
+            "modelRef": "model0000016b257141f0_00000002",
+            "dataItems": [
+              {
+                "id": "model0000016b25771e1d_00000000",
+                "itemId": "MOBCUSTOMERINFO.aPrimary_Interest",
+                "itemLabel": "Primary Interest"
+              }
+            ],
+            "id": "model0000016b25771e1d_00000001"
+          }
+        ]
+      },
+      "slotmapping": {
+        "slots": [
+          {
+            "name": "level1",
+            "dataItems": [
+              "model0000016b25771e1d_00000000"
+            ],
+            "caption": "Level one",
+            "id": "level1",
+            "layerId": "data"
+          }
+        ]
+      },
+      "type": "live",
+      "name": {
+        "translationTable": {}
+      },
+      "visId": "list"
+    },
+    "model0000016b2577a9bd_00000003": {
+      "id": "model0000016b2577a9bd_00000003",
+      "data": {
+        "dataViews": [
+          {
+            "modelRef": "model0000016b257141f0_00000002",
+            "dataItems": [
+              {
+                "id": "model0000016b2577a9bd_00000000",
+                "itemId": "MOBCUSTOMERINFO.aAnnual_Income",
+                "itemLabel": "Annual Income",
+                "aggregate": "avg"
+              }
+            ],
+            "id": "model0000016b2577a9bd_00000001"
+          }
+        ]
+      },
+      "slotmapping": {
+        "slots": [
+          {
+            "name": "values",
+            "dataItems": [
+              "model0000016b2577a9bd_00000000"
+            ],
+            "dataItemSettings": [],
+            "caption": "Value",
+            "id": "values",
+            "layerId": "data"
+          }
+        ]
+      },
+      "type": "live",
+      "name": {
+        "translationTable": {}
+      },
+      "localFilters": [],
+      "visId": "summary"
+    },
+    "model0000016b25785710_00000003": {
+      "id": "model0000016b25785710_00000003",
+      "data": {
+        "dataViews": [
+          {
+            "modelRef": "model0000016b257141f0_00000002",
+            "dataItems": [
+              {
+                "id": "model0000016b25785710_00000000",
+                "itemId": "MOBCUSTOMERINFO.aCredit_Rating",
+                "itemLabel": "Credit Rating",
+                "aggregate": "avg",
+                "format": {
+                  "id": "0digit",
+                  "localizedString": "789",
+                  "formatSpec": {
+                    "type": "number",
+                    "maximumFractionDigits": 0,
+                    "selectedFormat": "0digit"
+                  }
+                }
+              }
+            ],
+            "id": "model0000016b25785710_00000001"
+          }
+        ]
+      },
+      "slotmapping": {
+        "slots": [
+          {
+            "name": "values",
+            "dataItems": [
+              "model0000016b25785710_00000000"
+            ],
+            "dataItemSettings": [],
+            "caption": "Value",
+            "id": "values",
+            "layerId": "data"
+          }
+        ]
+      },
+      "type": "live",
+      "name": {
+        "translationTable": {}
+      },
+      "localFilters": [],
+      "visId": "summary"
+    },
+    "model0000016b2579b2b7_00000002": {
+      "id": "model0000016b2579b2b7_00000002",
+      "data": {
+        "dataViews": [
+          {
+            "modelRef": "model0000016b257141f0_00000002",
+            "dataItems": [
+              {
+                "id": "model0000016b2579b2b6_00000000",
+                "itemId": "MOBCUSTOMERINFO.aSecondary_Interest",
+                "itemLabel": "Secondary Interest"
+              },
+              {
+                "id": "model0000016b257a1f7f_00000000",
+                "itemId": "MOBCUSTOMERINFO.aCustomer_Name",
+                "itemLabel": "Customer Name"
+              }
+            ],
+            "id": "model0000016b2579b2b7_00000000"
+          }
+        ]
+      },
+      "visTypeLocked": true,
+      "slotmapping": {
+        "slots": [
+          {
+            "name": "categories",
+            "dataItems": [
+              "model0000016b2579b2b6_00000000"
+            ],
+            "dataItemSettings": [],
+            "caption": "Segments",
+            "id": "categories",
+            "layerId": "data"
+          },
+          {
+            "name": "values",
+            "dataItems": [
+              "model0000016b257a1f7f_00000000"
+            ],
+            "caption": "Size",
+            "id": "values"
+          }
+        ]
+      },
+      "type": "live",
+      "name": {
+        "translationTable": {}
+      },
+      "visId": "com.ibm.vis.rave2bundlepie"
+    },
+    "model0000016b257c416e_00000000": {
+      "id": "model0000016b257c416e_00000000",
+      "data": {
+        "dataViews": [
+          {
+            "modelRef": "model0000016b2571157f_00000000",
+            "dataItems": [
+              {
+                "id": "model0000016b257c6835_00000001",
+                "itemId": "SingCellQuality.aDistrict",
+                "itemLabel": "District"
+              },
+              {
+                "id": "model0000016b257c7c72_00000000",
+                "itemId": "SingCellQuality.aEVENT_DURATION_Mean",
+                "itemLabel": "EVENT_DURATION_Mean"
+              },
+              {
+                "id": "model0000016b257ca142_00000000",
+                "itemId": "SingCellQuality.aRegion",
+                "itemLabel": "Region"
+              }
+            ],
+            "id": "model0000016b257c6835_00000000"
+          }
+        ]
+      },
+      "visTypeLocked": true,
+      "slotmapping": {
+        "slots": [
+          {
+            "name": "categories",
+            "dataItems": [
+              "model0000016b257c6835_00000001"
+            ],
+            "dataItemSettings": [],
+            "caption": "Bubbles",
+            "id": "categories"
+          },
+          {
+            "name": "size",
+            "dataItems": [
+              "model0000016b257c7c72_00000000"
+            ],
+            "caption": "Size",
+            "id": "size"
+          },
+          {
+            "name": "color",
+            "dataItems": [
+              "model0000016b257ca142_00000000"
+            ],
+            "caption": "Color",
+            "id": "color"
+          }
+        ]
+      },
+      "type": "live",
+      "visId": "com.ibm.vis.rave2bundlepackedbubble",
+      "name": {
+        "translationTable": {}
+      }
+    }
+  }
+}

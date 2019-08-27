@@ -1,0 +1,106 @@
+{
+    "algorithm": "PipelineModel",
+    "algorithmType": "Classification",
+    "author": "1001",
+    "createdAt": 1559704728772,
+    "features": [
+        {
+            "name": "ID",
+            "sample": 14,
+            "type": "int"
+        },
+        {
+            "name": "Gender",
+            "sample": "F",
+            "type": "str"
+        },
+        {
+            "name": "Status",
+            "sample": "M",
+            "type": "str"
+        },
+        {
+            "name": "Children",
+            "sample": 2.0,
+            "type": "float"
+        },
+        {
+            "name": "EstIncome",
+            "sample": 52004.8,
+            "type": "float"
+        },
+        {
+            "name": "CarOwner",
+            "sample": "N",
+            "type": "str"
+        },
+        {
+            "name": "Age",
+            "sample": 25.14,
+            "type": "float"
+        },
+        {
+            "name": "LongDistance",
+            "sample": 5.03,
+            "type": "float"
+        },
+        {
+            "name": "International",
+            "sample": 0.0,
+            "type": "float"
+        },
+        {
+            "name": "Local",
+            "sample": 23.11,
+            "type": "float"
+        },
+        {
+            "name": "Dropped",
+            "sample": 0.0,
+            "type": "float"
+        },
+        {
+            "name": "Paymethod",
+            "sample": "CH",
+            "type": "str"
+        },
+        {
+            "name": "LocalBilltype",
+            "sample": "Budget",
+            "type": "str"
+        },
+        {
+            "name": "LongDistanceBilltype",
+            "sample": "Intnl_discount",
+            "type": "str"
+        },
+        {
+            "name": "Usage",
+            "sample": 28.14,
+            "type": "float"
+        },
+        {
+            "name": "RatePlan",
+            "sample": 1.0,
+            "type": "float"
+        }
+    ],
+    "id": 1559704728772,
+    "isPublished": false,
+    "labelColumns": [
+        {
+            "name": "CHURN",
+            "type": "str"
+        }
+    ],
+    "latestModelVersion": 2,
+    "learningType": "Supervised",
+    "name": "Telco_Churn_ML_model",
+    "params": {},
+    "publishedBy": "",
+    "publishedModelVersion": -1,
+    "runtime": "Python36",
+    "serialization": "spark",
+    "source": "",
+    "type": "spark-2.3"
+}

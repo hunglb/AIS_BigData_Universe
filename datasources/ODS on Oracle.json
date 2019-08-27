@@ -1,0 +1,1 @@
+{"dsx_artifact_type":"datasource","type":"Oracle","description":"","host":"","port":"","URL":"jdbc:oracle:thin:@9.30.248.156:1521:ORCLCDB","webHDFSURL":"","webHCatURL":"","livyURL":"","driverClassName":""}
